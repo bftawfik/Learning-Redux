@@ -12,6 +12,6 @@ Redux built using Functional Programming
 
 Concepts to be aware of is:
 
-  Pure functions
-  Immutability
-  Composition
+  *. Pure functions
+  *. Immutability
+  *. Composition
