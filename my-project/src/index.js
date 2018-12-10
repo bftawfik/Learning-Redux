@@ -1,45 +1,36 @@
 import C from './constants';
-import { allSkiDays } from './store/reducers';
+import appReducer from './store/reducers';
+import initialState from './initialState.json';
 
-const state = [
-  {
-    "resort": "Kirkwood",
-    "date": "2016-12-15",
-    "powder": true,
-    "backcountry": false
-  },
-  {
-    "resort": "Boreal",
-    "date": "2016-12-16",
-    "powder": false,
-    "backcountry": true
-  }
-]
+let state = initialState;
 
-const action = {
+state = appReducer(state, {
+  type: C.SET_GOAL,
+  payload: 2
+})
+
+state = appReducer(state, {
+  type: C.CHANGE_SUGGESTIONS,
+  payload: ["Mt Tallac", "Mt Hood", "Mt Shasta"]
+})
+
+state = appReducer(state, {
   type: C.ADD_DAY,
   payload: {
-    "resort": "Boreal",
-    "date": "2016-12-17",
+    "resort": "Mt Shasta",
+    "date": "2016-10-28",
     "powder": false,
     "backcountry": true
   }
-};
+})
 
-const action2 = {
-  type: C.REMOVE_DAY,
-  payload: "2016-12-15"
-};
-
-
-const nextState = allSkiDays(state, action2);
 
 console.log(`
 
-  initial stateal: ${JSON.stringify(state)}
-  action: ${JSON.stringify(action)}
-  new state: ${JSON.stringify(nextState)}
-
-
+    Initial state
+    ========================
+    Goal = ${state.goal}
+    resorts = ${JSON.stringify(state.allSkiDays)}
+    fetchig = ${JSON.stringify(state.resortNames.fetching)}
+    suggestions = ${JSON.stringify(state.resortNames.suggestions)}
 `);
-// surface pro 2018 4 ram m prossesor 128 go -4 go ram model 1796
