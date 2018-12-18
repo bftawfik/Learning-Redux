@@ -20,7 +20,19 @@ export const suggestResortNames = value => dispatch => {
     type: C.FETCH_RESORT_NAMES
   });
 
-  fetch('http://localhost:3333/resort/' + value)
+  fetch('http://localhost:3333/resorts/' + value)
   .then(responce => responce.json())
-  .then(suggestions => )
+  .then(suggestions => {
+    console.log(window);
+    dispatch({
+      type: C.CHANGE_SUGGESTIONS,
+      payload: suggestions
+    });
+  })
+  .catch(error => {
+    dispatch(addError(error.message));
+    dispatch({
+      type: C.CANCEL_FETCHING
+    });
+  })
 };

@@ -17,7 +17,7 @@ const consoleMessages = store => next => action => {
     ski days: ${allSkiDays.length}
     goal: ${goal}
     fetching: ${resortNames.fetching}
-    sggestions: ${resortNames.sggestions}
+    sggestions: ${resortNames.suggestions}
     errors: ${errors.length}
   `);
   console.groupEnd();
