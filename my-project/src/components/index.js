@@ -1,62 +1,27 @@
-import { Component } from 'react'
 import Menu from './ui/Menu'
-import SkiDayList from './containers/SkiDayList'
-import SkiDayCount from './containers/SkiDayCount'
-import AddDayForm from './containers/AddDayForm'
 import ShowErrors from './containers/ShowErrors'
 import GoalProgress from './containers/GoalProgress'
 import '../stylesheets/index.scss'
 
-export class App extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			allSkiDays: [
-			{
-				resort: "Squaw Valley",
-				date: "2016-01-02",
-				powder: true,
-				backcountry: false
-			}
-		]
-		}
-		this.addDay = this.addDay.bind(this)
-	}
+import SkiDayCount from './containers/SkiDayCount'
+import AddDayForm from './containers/AddDayForm'
+import SkiDayList from './containers/SkiDayList'
 
-	addDay(newDay) {
-		this.setState({
-			allSkiDays: [
-				...this.state.allSkiDays,
-				newDay
-			]
-		})
-	}
-
-	countDays(filter) {
-		const { allSkiDays } = this.state
-		return allSkiDays.filter(
-			(day) => (filter) ? day[filter] : day).length
-	}
-
-	render() {
-		console.log(this.props.match);
-		return (
-			<div className="app">
-        <ShowErrors />
+export const App = (props) =>
+    <div className="app">
+        <ShowErrors />{console.log(props.match.params)}
+        {!props.match.params.filter ?
+          <SkiDayCount/> :
+          props.match.params.filter === "add-day" ?
+          <AddDayForm/> :
+          props.match.params.filter === "list-days" ?
+          <SkiDayList params={{filter: props.match.params.filter2}}/> :
+          null
+        }
         <GoalProgress />
-				<Menu/>
-				{
-					this.props.location.pathname === "/" ?
-					<SkiDayCount total={this.countDays()} powder={this.countDays("powder")} backcountry={this.countDays("backcountry")}/> :
-					this.props.location.pathname === "/add-day" ?
-					<AddDayForm onNewDay={this.addDay}/> :
-					<SkiDayList filter={this.props.match.params.filter}/>
-				}
-			</div>
-		)
-	}
-}
-
+        <Menu />
+    </div>
+/*<SkiDayList/>*/
 export const Whoops404 = ({ location }) =>
     <div className="whoops-404">
         <h1>Whoops, route not found</h1>

@@ -1,4 +1,4 @@
-import { PropTypes } from 'react'
+import PropTypes from 'prop-types';
 import '../../stylesheets/GoalProgress.scss'
 
 const GoalProgress = ({current, goal=10, onNewGoal=f=>f}) => {

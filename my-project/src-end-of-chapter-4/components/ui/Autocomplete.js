@@ -1,5 +1,6 @@
-import { Component } from 'react'
-import Downloading from 'react-icons/lib/fa/cloud-download'
+import { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 class Autocomplete extends Component {
 
@@ -26,7 +27,7 @@ class Autocomplete extends Component {
                        onBlur={() => setTimeout(onClear, 250)}
                 />
 
-                <span>{(fetching) ? <Downloading /> : null }</span>
+                <span>{(fetching) ? <FontAwesomeIcon icon={faDownload} /> : null }</span>
 
                 <div className="suggestions">
                     {suggestions.map((item, i) =>

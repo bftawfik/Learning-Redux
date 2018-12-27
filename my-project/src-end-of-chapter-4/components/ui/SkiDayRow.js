@@ -1,6 +1,6 @@
-import { PropTypes } from 'react'
-import Terrain from 'react-icons/lib/md/terrain'
-import SnowFlake from 'react-icons/lib/ti/weather-snow'
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSnowflake, faMountain } from '@fortawesome/free-solid-svg-icons';
 
 const SkiDayRow = ({ resort, date, powder, backcountry, onRemoveDay=f=>f }) =>
     <tr onDoubleClick={() => onRemoveDay(date)}>
@@ -11,10 +11,10 @@ const SkiDayRow = ({ resort, date, powder, backcountry, onRemoveDay=f=>f }) =>
             {resort}
         </td>
         <td>
-            {(powder) ? <SnowFlake /> : null }
+            {(powder) ? <FontAwesomeIcon icon={faSnowflake} /> : null }
         </td>
         <td>
-            {(backcountry) ? <Terrain /> : null }
+            {(backcountry) ? <FontAwesomeIcon icon={faMountain} /> : null }
         </td>
     </tr>
 

@@ -1,8 +1,8 @@
-import { PropTypes } from 'react'
-import { Link } from 'react-router'
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
 import SkiDayRow from './SkiDayRow'
-import Terrain from 'react-icons/lib/md/terrain'
-import SnowFlake from 'react-icons/lib/ti/weather-snow'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSnowflake, faMountain } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/SkiDayList.scss'
 
 const SkiDayList = ({ days, filter, onRemoveDay=f=>f }) => {
@@ -24,14 +24,14 @@ const SkiDayList = ({ days, filter, onRemoveDay=f=>f }) => {
                 <tr>
                     <th>Date</th>
                     <th>Resort</th>
-                    <th><SnowFlake /></th>
-                    <th><Terrain /></th>
+                    <th><FontAwesomeIcon icon={faSnowflake} /></th>
+                    <th><FontAwesomeIcon icon={faMountain} /></th>
                 </tr>
                 <tr>
                     <td colSpan={4}>
-                        <Link to="/list-days" style={(!filter) ? activeFilterStyle : null}>All Days</Link>
-                        <Link to="/list-days/powder" activeStyle={activeFilterStyle}>Powder Days</Link>
-                        <Link to="/list-days/backcountry" activeStyle={activeFilterStyle}>Backcountry Days</Link>
+                        <NavLink to="/list-days" style={(!filter) ? activeFilterStyle : null}>All Days</NavLink>
+                        <NavLink to="/list-days/powder" activeStyle={activeFilterStyle}>Powder Days</NavLink>
+                        <NavLink to="/list-days/backcountry" activeStyle={activeFilterStyle}>Backcountry Days</NavLink>
                     </td>
                 </tr>
                 </thead>

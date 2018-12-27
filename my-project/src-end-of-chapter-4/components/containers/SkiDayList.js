@@ -1,3 +1,4 @@
+
 import SkiDayList from '../ui/SkiDayList'
 
 const sample = [
@@ -22,6 +23,10 @@ const sample = [
 ]
 
 export default (props) =>
-    <SkiDayList days={sample}
-                filter={props.params.filter}
-                onRemoveDay={date => console.log('remove day on', date)} />
+{
+  console.log(props);
+  return null;
+   <SkiDayList days={sample}
+              filter={props}
+              onRemoveDay={date => console.log('remove day on', date)} />
+}

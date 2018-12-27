@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSnowflake, faMountain } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 const SkiDayRow = ({ resort, date, powder, backcountry, onRemoveDay=f=>f }) =>
     <tr onDoubleClick={() => onRemoveDay(date)}>
