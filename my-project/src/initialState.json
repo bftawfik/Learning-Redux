@@ -20,7 +20,7 @@
 		}
 	],
 	"goal": 10,
-	"errors": [],
+	"errors": ["sample error"],
 	"resortNames": {
 		"fetching": false,
 		"suggestions": ["Squaw Valley", "Snowbird", "Stowe", "Steamboat"]

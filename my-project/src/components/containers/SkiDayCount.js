@@ -8,5 +8,4 @@ const mapStateToProps = (state) => ({
 	backcountry: state.allSkiDays.filter(day => day.backcountry).length,
 });
 
-export const Container = connect(mapStateToProps)(SkiDayCount)
-export default Container;
+export default connect(mapStateToProps)(SkiDayCount);
