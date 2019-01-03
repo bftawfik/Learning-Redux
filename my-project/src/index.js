@@ -30,5 +30,3 @@ render(
   <Provider store={store}>{routes}</Provider>,
   document.getElementById('react-container')
 )
-
-foo = bar
